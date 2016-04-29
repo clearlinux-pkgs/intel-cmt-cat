@@ -4,7 +4,7 @@
 #
 Name     : intel-cmt-cat
 Version  : 0.1.4
-Release  : 2
+Release  : 3
 URL      : https://github.com/01org/intel-cmt-cat/archive/v0.1.4.tar.gz
 Source0  : https://github.com/01org/intel-cmt-cat/archive/v0.1.4.tar.gz
 Summary  : No detailed summary available
