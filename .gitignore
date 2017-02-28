@@ -1,0 +1,10 @@
+.*~
+*~
+*.swp
+
+*xz
+*gz
+
+mock*log
+
+results
