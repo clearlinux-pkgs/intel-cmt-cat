@@ -4,7 +4,7 @@
 #
 Name     : intel-cmt-cat
 Version  : 0.1.5.1
-Release  : 6
+Release  : 7
 URL      : https://github.com/01org/intel-cmt-cat/archive/v0.1.5-1.tar.gz
 Source0  : https://github.com/01org/intel-cmt-cat/archive/v0.1.5-1.tar.gz
 Summary  : Provides command line interface to CMT, MBM, CAT and CDP technologies
