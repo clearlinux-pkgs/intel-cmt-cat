@@ -1,10 +1,77 @@
 ======================================================================
-Not Released
+Release  v1.1  2017-07-19
+======================================================================
+
+Contributors (alphabetical order):
+	Aaron Hetherington <aaron.hetherington@intel.com>
+        Bernhard M. Wiedemann <bernhard@zq1.de>
+        Brian Dooley <brian.dooley@intel.com>
+        Jessica Bizimungu <jessica.bizimungu@intel.com>
+	Marcel Cornu <marcel.d.cornu@intel.com>
+	Michal Aleksinski <michalx.aleksinski@intel.com>
+
+Summary:
+1. Library
+        - Added PID support for L2CAT, L3CAT and CDP
+        - Added global RDT interface enforcement.
+2. PQoS Utility
+        - Added PID support for L2CAT, L3CAT and CDP
+3. rdtset Utility
+        - Added PID support for L2CAT, L3CAT and CDP
+        - Updated to work with multiple PID's
+4. General
+        - Bug fixes
+
+======================================================================
+Release  v1.0.1  2017-06-06
+======================================================================
+
+Contributors (alphabetical order):
+	Aaron Hetherington <aaron.hetherington@intel.com>
+        Bernhard M. Wiedemann <bernhard@zq1.de>
+        Brian Dooley <brian.dooley@intel.com>
+	Marcel Cornu <marcel.d.cornu@intel.com>
+	Michal Aleksinski <michalx.aleksinski@intel.com>
+
+Summary:
+1. snmp
+        - Added OS interface support to Net-SNMP sub-agent
+2. General
+	- Build improvements
+	- Bug fixes
+
+======================================================================
+Release  v1.0.0  2017-05-16
+======================================================================
+
+Contributors (alphabetical order):
+	Aaron Hetherington <aaron.hetherington@intel.com>
+        Colin Ian King <colin.king@canonical.com>
+	Marcel Cornu <marcel.d.cornu@intel.com>
+	Michal Aleksinski <michalx.aleksinski@intel.com>
+	Tomasz Kantecki <tomasz.kantecki@intel.com>
+
+Summary:
+1. Library
+        - Removed NO_PID_API compile time option
+        - Added OS interface to support L3/L2 CAT & CDP
+        - Updated support for CMT per PID
+2. PQoS Utility
+        - Added pqos-os & pqos-msr wrapper scripts
+        - Added option to select OS or MSR interface
+3. rdtset Utility
+        - Added option to select OS or MSR interface
+4. Examples
+        - Support for new OS/MSR interface added to CMT/MBM examples
+
+======================================================================
+Release  v0.1.5-1  2017-02-09
 ======================================================================
 
 Contributors (alphabetical order):
 	Aaron Hetherington <aaron.hetherington@intel.com>
 	Marcel Cornu <marcel.d.cornu@intel.com>
+	Michal Aleksinski <michalx.aleksinski@intel.com>
 	Tomasz Kantecki <tomasz.kantecki@intel.com>
 	Wojciech Andralojc <wojciechx.andralojc@intel.com>
 
@@ -21,6 +88,7 @@ Summary:
 	- Support for MBA
 4. rdtset Utility
 	- L2 CAT updated to operate on a per cluster/L2 ID basis
+	- Support of MBA
 
 ======================================================================
 Release  v0.1.5  2016-09-20
