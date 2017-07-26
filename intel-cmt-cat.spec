@@ -4,13 +4,14 @@
 #
 Name     : intel-cmt-cat
 Version  : 1.1.0
-Release  : 8
+Release  : 9
 URL      : https://github.com/01org/intel-cmt-cat/archive/v1.1.0.tar.gz
 Source0  : https://github.com/01org/intel-cmt-cat/archive/v1.1.0.tar.gz
 Summary  : Provides command line interface to CMT, MBM, CAT, CDP and MBA technologies
 Group    : Development/Tools
 License  : BSD-3-Clause
 Requires: intel-cmt-cat-bin
+Requires: intel-cmt-cat-lib
 Patch1: build.patch
 
 %description
@@ -35,6 +36,25 @@ Group: Binaries
 bin components for the intel-cmt-cat package.
 
 
+%package dev
+Summary: dev components for the intel-cmt-cat package.
+Group: Development
+Requires: intel-cmt-cat-lib
+Requires: intel-cmt-cat-bin
+Provides: intel-cmt-cat-devel
+
+%description dev
+dev components for the intel-cmt-cat package.
+
+
+%package lib
+Summary: lib components for the intel-cmt-cat package.
+Group: Libraries
+
+%description lib
+lib components for the intel-cmt-cat package.
+
+
 %prep
 %setup -q -n intel-cmt-cat-1.1.0
 %patch1 -p1
@@ -44,26 +64,32 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1500998163
+export SOURCE_DATE_EPOCH=1501080931
 make V=1  %{?_smp_mflags}
 
 %install
-export SOURCE_DATE_EPOCH=1500998163
+export SOURCE_DATE_EPOCH=1501080931
 rm -rf %{buildroot}
-%make_install PREFIX=%{buildroot}
+%make_install PREFIX=%{buildroot}/usr
 
 %files
 %defattr(-,root,root,-)
-/include/pqos.h
-/lib/libpqos.so.1.1.0
-/man/man8/pqos-msr.8
-/man/man8/pqos-os.8
-/man/man8/pqos.8
-/man/man8/rdtset.8
+/usr/man/man8/pqos-msr.8
+/usr/man/man8/pqos-os.8
+/usr/man/man8/pqos.8
+/usr/man/man8/rdtset.8
 
 %files bin
 %defattr(-,root,root,-)
-/bin/pqos
-/bin/pqos-msr
-/bin/pqos-os
-/bin/rdtset
+/usr/bin/pqos
+/usr/bin/pqos-msr
+/usr/bin/pqos-os
+/usr/bin/rdtset
+
+%files dev
+%defattr(-,root,root,-)
+/usr/include/*.h
+
+%files lib
+%defattr(-,root,root,-)
+/usr/lib/libpqos.so.1.1.0
