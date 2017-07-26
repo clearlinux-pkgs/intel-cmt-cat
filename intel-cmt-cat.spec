@@ -4,7 +4,7 @@
 #
 Name     : intel-cmt-cat
 Version  : 1.1.0
-Release  : 9
+Release  : 10
 URL      : https://github.com/01org/intel-cmt-cat/archive/v1.1.0.tar.gz
 Source0  : https://github.com/01org/intel-cmt-cat/archive/v1.1.0.tar.gz
 Summary  : Provides command line interface to CMT, MBM, CAT, CDP and MBA technologies
@@ -64,13 +64,16 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1501080931
+export SOURCE_DATE_EPOCH=1501081010
 make V=1  %{?_smp_mflags}
 
 %install
-export SOURCE_DATE_EPOCH=1501080931
+export SOURCE_DATE_EPOCH=1501081010
 rm -rf %{buildroot}
 %make_install PREFIX=%{buildroot}/usr
+## make_install_append content
+mv %{buildroot}/usr/lib %{buildroot}/usr/lib64
+## make_install_append end
 
 %files
 %defattr(-,root,root,-)
@@ -92,4 +95,4 @@ rm -rf %{buildroot}
 
 %files lib
 %defattr(-,root,root,-)
-/usr/lib/libpqos.so.1.1.0
+/usr/lib64/libpqos.so.1.1.0
