@@ -1,1 +1,1 @@
-DESTDIR=%{buildroot} PREFIX=/usr NOLDCONFIG=y
+DESTDIR=%{buildroot} PREFIX=/usr NOLDCONFIG=y LIB_INSTALL_DIR=%{buildroot}/usr/lib64 MAN_DIR=%{buildroot}/usr/share/man/man8

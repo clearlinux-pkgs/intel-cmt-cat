@@ -4,15 +4,16 @@
 #
 Name     : intel-cmt-cat
 Version  : 3.0.0
-Release  : 11
+Release  : 12
 URL      : https://github.com/intel/intel-cmt-cat/archive/v3.0.0.tar.gz
 Source0  : https://github.com/intel/intel-cmt-cat/archive/v3.0.0.tar.gz
 Summary  : Provides command line interface to CMT, MBM, CAT, CDP and MBA technologies
 Group    : Development/Tools
 License  : BSD-3-Clause
 Requires: intel-cmt-cat-bin = %{version}-%{release}
+Requires: intel-cmt-cat-lib = %{version}-%{release}
 Requires: intel-cmt-cat-license = %{version}-%{release}
-Requires: intel-cmt-cat-plugins = %{version}-%{release}
+Requires: intel-cmt-cat-man = %{version}-%{release}
 BuildRequires : buildreq-cpan
 Patch1: 0001-Don-t-set-cflags-in-embedded-application.patch
 Patch2: 0002-Add-destdir-support.patch
@@ -35,6 +36,7 @@ it requires root privileges.
 Summary: bin components for the intel-cmt-cat package.
 Group: Binaries
 Requires: intel-cmt-cat-license = %{version}-%{release}
+Requires: intel-cmt-cat-man = %{version}-%{release}
 
 %description bin
 bin components for the intel-cmt-cat package.
@@ -43,11 +45,21 @@ bin components for the intel-cmt-cat package.
 %package dev
 Summary: dev components for the intel-cmt-cat package.
 Group: Development
+Requires: intel-cmt-cat-lib = %{version}-%{release}
 Requires: intel-cmt-cat-bin = %{version}-%{release}
 Provides: intel-cmt-cat-devel = %{version}-%{release}
 
 %description dev
 dev components for the intel-cmt-cat package.
+
+
+%package lib
+Summary: lib components for the intel-cmt-cat package.
+Group: Libraries
+Requires: intel-cmt-cat-license = %{version}-%{release}
+
+%description lib
+lib components for the intel-cmt-cat package.
 
 
 %package license
@@ -58,12 +70,12 @@ Group: Default
 license components for the intel-cmt-cat package.
 
 
-%package plugins
-Summary: plugins components for the intel-cmt-cat package.
+%package man
+Summary: man components for the intel-cmt-cat package.
 Group: Default
 
-%description plugins
-plugins components for the intel-cmt-cat package.
+%description man
+man components for the intel-cmt-cat package.
 
 
 %prep
@@ -76,24 +88,20 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1550773886
+export SOURCE_DATE_EPOCH=1550774286
 export LDFLAGS="${LDFLAGS} -fno-lto"
 make  %{?_smp_mflags}
 
 
 %install
-export SOURCE_DATE_EPOCH=1550773886
+export SOURCE_DATE_EPOCH=1550774286
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/intel-cmt-cat
 cp LICENSE %{buildroot}/usr/share/package-licenses/intel-cmt-cat/LICENSE
-%make_install DESTDIR=%{buildroot} PREFIX=/usr NOLDCONFIG=y
+%make_install DESTDIR=%{buildroot} PREFIX=/usr NOLDCONFIG=y LIB_INSTALL_DIR=%{buildroot}/usr/lib64 MAN_DIR=%{buildroot}/usr/share/man/man8
 
 %files
 %defattr(-,root,root,-)
-/usr/man/man8/pqos-msr.8
-/usr/man/man8/pqos-os.8
-/usr/man/man8/pqos.8
-/usr/man/man8/rdtset.8
 
 %files bin
 %defattr(-,root,root,-)
@@ -105,13 +113,20 @@ cp LICENSE %{buildroot}/usr/share/package-licenses/intel-cmt-cat/LICENSE
 %files dev
 %defattr(-,root,root,-)
 /usr/include/*.h
-/usr/lib/libpqos.so
+/usr/lib64/libpqos.so
+
+%files lib
+%defattr(-,root,root,-)
+/usr/lib64/libpqos.so.3
+/usr/lib64/libpqos.so.3.0.0
 
 %files license
 %defattr(0644,root,root,0755)
 /usr/share/package-licenses/intel-cmt-cat/LICENSE
 
-%files plugins
-%defattr(-,root,root,-)
-/usr/lib/libpqos.so.3
-/usr/lib/libpqos.so.3.0.0
+%files man
+%defattr(0644,root,root,0755)
+/usr/share/man/man8/pqos-msr.8
+/usr/share/man/man8/pqos-os.8
+/usr/share/man/man8/pqos.8
+/usr/share/man/man8/rdtset.8
