@@ -1,1 +1,2 @@
-build.patch
+0001-Don-t-set-cflags-in-embedded-application.patch
+0002-Add-destdir-support.patch

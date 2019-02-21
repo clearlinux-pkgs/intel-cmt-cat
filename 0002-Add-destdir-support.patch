@@ -1,0 +1,86 @@
+From 9a43ac4a8967555fe0a361c57ee13ce504471124 Mon Sep 17 00:00:00 2001
+From: William Douglas <william.douglas@intel.com>
+Date: Thu, 21 Feb 2019 10:23:28 -0800
+Subject: [PATCH 2/2] Add destdir support
+
+---
+ Makefile        | 2 ++
+ lib/Makefile    | 5 +++--
+ pqos/Makefile   | 5 +++--
+ rdtset/Makefile | 7 ++++---
+ 4 files changed, 12 insertions(+), 7 deletions(-)
+
+diff --git a/Makefile b/Makefile
+index e23b892..5d26d1f 100644
+--- a/Makefile
++++ b/Makefile
+@@ -36,6 +36,8 @@
+ ###############################################################################
+ 
+ # XXX: modify as desired
++DESTDIR ?= /
++export DESTDIR
+ PREFIX ?= /usr/local
+ export PREFIX
+ 
+diff --git a/lib/Makefile b/lib/Makefile
+index 7c621ac..2cdd68d 100644
+--- a/lib/Makefile
++++ b/lib/Makefile
+@@ -98,9 +98,10 @@ OBJS := $(filter-out perf.o \
+ endif
+ 
+ HDR = pqos.h
++DESTDIR ?= /
+ PREFIX ?= /usr/local
+-LIB_INSTALL_DIR ?= $(PREFIX)/lib
+-HDR_DIR ?= $(PREFIX)/include
++LIB_INSTALL_DIR ?= $(DESTDIR)/$(PREFIX)/lib
++HDR_DIR ?= $(DESTDIR)/$(PREFIX)/include
+ DEPFILE = $(LIB).dep
+ NOLDCONFIG ?= n
+ 
+diff --git a/pqos/Makefile b/pqos/Makefile
+index 83d5698..d0c9cd4 100644
+--- a/pqos/Makefile
++++ b/pqos/Makefile
+@@ -71,9 +71,10 @@ APP = pqos
+ MAN = pqos.8
+ 
+ # XXX: modify as desired
++DESTDIR ?= /
+ PREFIX ?= /usr/local
+-BIN_DIR = $(PREFIX)/bin
+-MAN_DIR = $(PREFIX)/man/man8
++BIN_DIR = $(DESTDIR)/$(PREFIX)/bin
++MAN_DIR = $(DESTDIR)/$(PREFIX)/man/man8
+ 
+ SRCS = $(sort $(wildcard *.c))
+ OBJS = $(SRCS:.c=.o)
+diff --git a/rdtset/Makefile b/rdtset/Makefile
+index aaf3429..5fe9826 100644
+--- a/rdtset/Makefile
++++ b/rdtset/Makefile
+@@ -1,5 +1,5 @@
+ ###############################################################################
+-# Makefile script for rdtset tool
++	# Makefile script for rdtset tool
+ #
+ # @par
+ # BSD LICENSE
+@@ -77,9 +77,10 @@ APP = rdtset
+ MAN = rdtset.8
+ 
+ # XXX: modify as desired
++DESTDIR ?= /
+ PREFIX ?= /usr/local
+-BIN_DIR = $(PREFIX)/bin
+-MAN_DIR = $(PREFIX)/man/man8
++BIN_DIR = $(DESTDIR)/$(PREFIX)/bin
++MAN_DIR = $(DESTDIR)/$(PREFIX)/man/man8
+ 
+ SRCS = $(sort $(wildcard *.c))
+ OBJS = $(SRCS:.c=.o)
+-- 
+2.20.1
+
