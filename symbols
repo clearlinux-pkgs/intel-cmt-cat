@@ -10,6 +10,7 @@ libpqos.so.3:_pqos_utils_init
 libpqos.so.3:api_init
 libpqos.so.3:cpuinfo_fini
 libpqos.so.3:cpuinfo_init
+libpqos.so.3:fopen_check_symlink
 libpqos.so.3:hw_alloc_assign
 libpqos.so.3:hw_alloc_assoc_get
 libpqos.so.3:hw_alloc_assoc_set
@@ -102,7 +103,11 @@ libpqos.so.3:pqos_cpu_get_core_info
 libpqos.so.3:pqos_cpu_get_cores
 libpqos.so.3:pqos_cpu_get_cores_l3id
 libpqos.so.3:pqos_cpu_get_l2ids
+libpqos.so.3:pqos_cpu_get_l3cat_ids
+libpqos.so.3:pqos_cpu_get_mba_ids
 libpqos.so.3:pqos_cpu_get_one_by_l2id
+libpqos.so.3:pqos_cpu_get_one_by_l3cat_id
+libpqos.so.3:pqos_cpu_get_one_by_mba_id
 libpqos.so.3:pqos_cpu_get_one_core
 libpqos.so.3:pqos_cpu_get_socketid
 libpqos.so.3:pqos_cpu_get_sockets
@@ -145,8 +150,6 @@ libpqos.so.3:resctrl_alloc_fopen
 libpqos.so.3:resctrl_alloc_get_grps_num
 libpqos.so.3:resctrl_alloc_get_unused_group
 libpqos.so.3:resctrl_alloc_init
-libpqos.so.3:resctrl_alloc_schemata_fini
-libpqos.so.3:resctrl_alloc_schemata_init
 libpqos.so.3:resctrl_alloc_schemata_read
 libpqos.so.3:resctrl_alloc_schemata_write
 libpqos.so.3:resctrl_alloc_task_file_check
@@ -174,4 +177,16 @@ libpqos.so.3:resctrl_mon_reset
 libpqos.so.3:resctrl_mon_start
 libpqos.so.3:resctrl_mon_stop
 libpqos.so.3:resctrl_mount
+libpqos.so.3:resctrl_schemata_alloc
+libpqos.so.3:resctrl_schemata_free
+libpqos.so.3:resctrl_schemata_l2ca_get
+libpqos.so.3:resctrl_schemata_l2ca_set
+libpqos.so.3:resctrl_schemata_l3ca_get
+libpqos.so.3:resctrl_schemata_l3ca_set
+libpqos.so.3:resctrl_schemata_mba_get
+libpqos.so.3:resctrl_schemata_mba_set
+libpqos.so.3:resctrl_schemata_read
+libpqos.so.3:resctrl_schemata_reset
+libpqos.so.3:resctrl_schemata_write
 libpqos.so.3:resctrl_umount
+libpqos.so.3:resctrl_utils_strtouint64

@@ -1,0 +1,39 @@
+From 73d631f66b39471ccc07918403bde14222f8e006 Mon Sep 17 00:00:00 2001
+From: "Aleksinski, MichalX" <michalx.aleksinski@intel.com>
+Date: Sun, 16 Feb 2020 22:47:54 -0800
+Subject: [PATCH] rdtset: Fixed compilation issue with gcc-10
+
+---
+ rdtset/common.c | 2 ++
+ rdtset/common.h | 2 +-
+ 2 files changed, 3 insertions(+), 1 deletion(-)
+
+diff --git a/rdtset/common.c b/rdtset/common.c
+index 331c741..312fee7 100644
+--- a/rdtset/common.c
++++ b/rdtset/common.c
+@@ -41,6 +41,8 @@
+ #include "common.h"
+ #include "rdt.h"
+ 
++struct rdtset g_cfg;
++
+ int
+ str_to_cpuset(const char *cpustr, const unsigned cpustr_len, cpu_set_t *cpuset)
+ {
+diff --git a/rdtset/common.h b/rdtset/common.h
+index a203a30..15795eb 100644
+--- a/rdtset/common.h
++++ b/rdtset/common.h
+@@ -176,7 +176,7 @@ struct rdtset {
+         enum pqos_interface interface; /**< pqos interface to use */
+ };
+ 
+-struct rdtset g_cfg;
++extern struct rdtset g_cfg;
+ 
+ #define DBG(...)                                                               \
+         do {                                                                   \
+-- 
+2.26.2
+

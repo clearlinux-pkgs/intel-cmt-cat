@@ -1,2 +1,2 @@
-0001-Don-t-set-cflags-in-embedded-application.patch
+0001-rdtset-Fixed-compilation-issue-with-gcc-10.patch
 0002-Add-destdir-support.patch
