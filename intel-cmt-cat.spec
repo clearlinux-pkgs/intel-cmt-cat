@@ -4,7 +4,7 @@
 #
 Name     : intel-cmt-cat
 Version  : 3.2.0
-Release  : 15
+Release  : 16
 URL      : https://github.com/intel/intel-cmt-cat/archive/v3.2.0/intel-cmt-cat-3.2.0.tar.gz
 Source0  : https://github.com/intel/intel-cmt-cat/archive/v3.2.0/intel-cmt-cat-3.2.0.tar.gz
 Summary  : Provides command line interface to CMT, MBM, CAT, CDP and MBA technologies
@@ -14,26 +14,16 @@ Requires: intel-cmt-cat-bin = %{version}-%{release}
 Requires: intel-cmt-cat-lib = %{version}-%{release}
 Requires: intel-cmt-cat-license = %{version}-%{release}
 Requires: intel-cmt-cat-man = %{version}-%{release}
-Requires: Flask
-Requires: astroid
-Requires: bandit
-Requires: coverage
-Requires: jsonschema
-Requires: pexpect
-Requires: pylint
-Requires: python-mock
-Requires: requests
-BuildRequires : Flask
-BuildRequires : astroid
-BuildRequires : bandit
 BuildRequires : buildreq-cpan
 BuildRequires : buildreq-distutils3
-BuildRequires : coverage
-BuildRequires : jsonschema
-BuildRequires : pexpect
-BuildRequires : pylint
-BuildRequires : python-mock
-BuildRequires : requests
+BuildRequires : pypi(astroid)
+BuildRequires : pypi(coverage)
+BuildRequires : pypi(flask)
+BuildRequires : pypi(jsonschema)
+BuildRequires : pypi(mock)
+BuildRequires : pypi(pexpect)
+BuildRequires : pypi(pylint)
+BuildRequires : pypi(requests)
 Patch1: 0001-rdtset-Fixed-compilation-issue-with-gcc-10.patch
 Patch2: 0002-Add-destdir-support.patch
 
@@ -108,7 +98,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1589822305
+export SOURCE_DATE_EPOCH=1671139178
 export GCC_IGNORE_WERROR=1
 export CFLAGS="$CFLAGS -fno-lto "
 export FCFLAGS="$FFLAGS -fno-lto "
@@ -118,10 +108,10 @@ make  %{?_smp_mflags}
 
 
 %install
-export SOURCE_DATE_EPOCH=1589822305
+export SOURCE_DATE_EPOCH=1671139178
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/intel-cmt-cat
-cp %{_builddir}/intel-cmt-cat-3.2.0/LICENSE %{buildroot}/usr/share/package-licenses/intel-cmt-cat/d5da2840ccb293dee3f6c5e01495c3715deb78a7
+cp %{_builddir}/intel-cmt-cat-%{version}/LICENSE %{buildroot}/usr/share/package-licenses/intel-cmt-cat/d5da2840ccb293dee3f6c5e01495c3715deb78a7 || :
 %make_install DESTDIR=%{buildroot} PREFIX=/usr NOLDCONFIG=y LIB_INSTALL_DIR=%{buildroot}/usr/lib64 MAN_DIR=%{buildroot}/usr/share/man/man8
 ## install_append content
 #mv %{buildroot}/usr/lib %{buildroot}/usr/lib64
