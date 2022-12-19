@@ -77,3 +77,16 @@ index aaf3429..9752bc7 100644
 -- 
 2.20.1
 
+--- intel-cmt-cat-4.5.0/tools/membw/Makefile~	2022-12-15 12:17:00.000000000 +0000
++++ intel-cmt-cat-4.5.0/tools/membw/Makefile	2022-12-19 20:34:33.809123787 +0000
+@@ -101,8 +101,8 @@
+ 	install -s $(APP) $(BIN_DIR)
+ 	install -m 0444 $(MAN) $(MAN_DIR)
+ else
+-	install -D -s $(APP) $(BIN_DIR)/$(APP)
+-	install -m 0444 $(MAN) -D $(MAN_DIR)/$(MAN)
++	install -D -s $(APP) $(DESTDIR)$(BIN_DIR)/$(APP)
++	install -m 0444 $(MAN) -D $(DESTDIR)$(MAN_DIR)/$(MAN)
+ endif
+ 
+ uninstall:
