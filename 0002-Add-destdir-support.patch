@@ -86,7 +86,7 @@ index aaf3429..9752bc7 100644
 -	install -D -s $(APP) $(BIN_DIR)/$(APP)
 -	install -m 0444 $(MAN) -D $(MAN_DIR)/$(MAN)
 +	install -D -s $(APP) $(DESTDIR)$(BIN_DIR)/$(APP)
-+	install -m 0444 $(MAN) -D $(DESTDIR)$(MAN_DIR)/$(MAN)
++	install -m 0444 $(MAN) -D $(MAN_DIR)/$(MAN)
  endif
  
  uninstall:

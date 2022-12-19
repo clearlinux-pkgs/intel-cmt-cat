@@ -4,7 +4,7 @@
 #
 Name     : intel-cmt-cat
 Version  : 4.5.0
-Release  : 17
+Release  : 18
 URL      : https://github.com/intel/intel-cmt-cat/archive/v4.5.0/intel-cmt-cat-4.5.0.tar.gz
 Source0  : https://github.com/intel/intel-cmt-cat/archive/v4.5.0/intel-cmt-cat-4.5.0.tar.gz
 Summary  : Provides command line interface to CMT, MBM, CAT, CDP and MBA technologies
@@ -90,7 +90,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1671482157
+export SOURCE_DATE_EPOCH=1671484190
 export GCC_IGNORE_WERROR=1
 export CFLAGS="$CFLAGS -fno-lto "
 export FCFLAGS="$FFLAGS -fno-lto "
@@ -100,7 +100,7 @@ make  %{?_smp_mflags}
 
 
 %install
-export SOURCE_DATE_EPOCH=1671482157
+export SOURCE_DATE_EPOCH=1671484190
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/intel-cmt-cat
 cp %{_builddir}/intel-cmt-cat-%{version}/LICENSE %{buildroot}/usr/share/package-licenses/intel-cmt-cat/7dc2b805a62e83e535d8c28eb353fbc679851a7c || :
@@ -113,7 +113,6 @@ cp %{_builddir}/intel-cmt-cat-%{version}/lib/python/LICENSE %{buildroot}/usr/sha
 
 %files
 %defattr(-,root,root,-)
-/builddir/build/BUILDROOT/intel-cmt-cat-4.5.0-17.x86_64/usr/share/man/man8/membw.8
 
 %files bin
 %defattr(-,root,root,-)
@@ -140,6 +139,7 @@ cp %{_builddir}/intel-cmt-cat-%{version}/lib/python/LICENSE %{buildroot}/usr/sha
 
 %files man
 %defattr(0644,root,root,0755)
+/usr/share/man/man8/membw.8
 /usr/share/man/man8/pqos-msr.8
 /usr/share/man/man8/pqos-os.8
 /usr/share/man/man8/pqos.8
