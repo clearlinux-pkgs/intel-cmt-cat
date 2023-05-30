@@ -9,6 +9,7 @@ libpqos.so.4:pqos_alloc_init
 libpqos.so.4:pqos_alloc_release
 libpqos.so.4:pqos_alloc_release_pid
 libpqos.so.4:pqos_alloc_reset
+libpqos.so.4:pqos_alloc_reset_config
 libpqos.so.4:pqos_cap_get
 libpqos.so.4:pqos_cap_get_event
 libpqos.so.4:pqos_cap_get_type
@@ -56,8 +57,10 @@ libpqos.so.4:pqos_mon_poll_events
 libpqos.so.4:pqos_mon_remove_pids
 libpqos.so.4:pqos_mon_reset
 libpqos.so.4:pqos_mon_start
+libpqos.so.4:pqos_mon_start_cores
 libpqos.so.4:pqos_mon_start_pid
 libpqos.so.4:pqos_mon_start_pids
+libpqos.so.4:pqos_mon_start_pids2
 libpqos.so.4:pqos_mon_start_uncore
 libpqos.so.4:pqos_mon_stop
 libpqos.so.4:pqos_pid_get_pid_assoc
