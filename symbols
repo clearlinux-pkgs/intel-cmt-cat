@@ -1,3 +1,5 @@
+libpqos.so.4:cpuinfo_get_cpu_family
+libpqos.so.4:cpuinfo_get_cpu_model
 libpqos.so.4:pqos_alloc_assign
 libpqos.so.4:pqos_alloc_assign_pid
 libpqos.so.4:pqos_alloc_assoc_get

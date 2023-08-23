@@ -4,10 +4,10 @@
 # Using build pattern: make
 #
 Name     : intel-cmt-cat
-Version  : 4.6.0
-Release  : 19
-URL      : https://github.com/intel/intel-cmt-cat/archive/v4.6.0/intel-cmt-cat-4.6.0.tar.gz
-Source0  : https://github.com/intel/intel-cmt-cat/archive/v4.6.0/intel-cmt-cat-4.6.0.tar.gz
+Version  : v23.08
+Release  : 20
+URL      : https://github.com/intel/intel-cmt-cat/archive/v23.08/intel-cmt-cat-v23.08.tar.gz
+Source0  : https://github.com/intel/intel-cmt-cat/archive/v23.08/intel-cmt-cat-v23.08.tar.gz
 Summary  : Provides command line interface to CMT, MBM, CAT, CDP and MBA technologies
 Group    : Development/Tools
 License  : BSD-3-Clause
@@ -81,11 +81,11 @@ man components for the intel-cmt-cat package.
 
 
 %prep
-%setup -q -n intel-cmt-cat-4.6.0
-cd %{_builddir}/intel-cmt-cat-4.6.0
-%patch1 -p1
+%setup -q -n intel-cmt-cat-23.08
+cd %{_builddir}/intel-cmt-cat-23.08
+%patch -P 1 -p1
 pushd ..
-cp -a intel-cmt-cat-4.6.0 buildavx2
+cp -a intel-cmt-cat-23.08 buildavx2
 popd
 
 %build
@@ -93,7 +93,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1685459087
+export SOURCE_DATE_EPOCH=1692815035
 export GCC_IGNORE_WERROR=1
 export CFLAGS="$CFLAGS -fdebug-types-section -femit-struct-debug-baseonly -fno-lto -g1 -gno-column-info -gno-variable-location-views -gz=zstd "
 export FCFLAGS="$FFLAGS -fdebug-types-section -femit-struct-debug-baseonly -fno-lto -g1 -gno-column-info -gno-variable-location-views -gz=zstd "
@@ -111,12 +111,12 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1685459087
+export SOURCE_DATE_EPOCH=1692815035
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/intel-cmt-cat
-cp %{_builddir}/intel-cmt-cat-%{version}/LICENSE %{buildroot}/usr/share/package-licenses/intel-cmt-cat/a4a43e608149714ad15f92d9f363b39bf0ea8894 || :
-cp %{_builddir}/intel-cmt-cat-%{version}/appqos/LICENSE %{buildroot}/usr/share/package-licenses/intel-cmt-cat/ae790ed217e8133bdd20c1d2c3401a4b3a587220 || :
-cp %{_builddir}/intel-cmt-cat-%{version}/lib/python/LICENSE %{buildroot}/usr/share/package-licenses/intel-cmt-cat/ae790ed217e8133bdd20c1d2c3401a4b3a587220 || :
+cp %{_builddir}/intel-cmt-cat-23.08/LICENSE %{buildroot}/usr/share/package-licenses/intel-cmt-cat/a4a43e608149714ad15f92d9f363b39bf0ea8894 || :
+cp %{_builddir}/intel-cmt-cat-23.08/appqos/LICENSE %{buildroot}/usr/share/package-licenses/intel-cmt-cat/ae790ed217e8133bdd20c1d2c3401a4b3a587220 || :
+cp %{_builddir}/intel-cmt-cat-23.08/lib/python/LICENSE %{buildroot}/usr/share/package-licenses/intel-cmt-cat/ae790ed217e8133bdd20c1d2c3401a4b3a587220 || :
 pushd ../buildavx2/
 %make_install_v3 DESTDIR=%{buildroot} PREFIX=/usr NOLDCONFIG=y LIB_INSTALL_DIR=%{buildroot}/usr/lib64 MAN_DIR=%{buildroot}/usr/share/man/man8
 popd
@@ -145,7 +145,7 @@ popd
 %files lib
 %defattr(-,root,root,-)
 /usr/lib64/libpqos.so.4
-/usr/lib64/libpqos.so.4.6.0
+/usr/lib64/libpqos.so.4.6.1
 
 %files license
 %defattr(0644,root,root,0755)
