@@ -1,5 +1,5 @@
 PKG_NAME := intel-cmt-cat
-URL = https://github.com/intel/intel-cmt-cat/archive/v24.05/intel-cmt-cat-24.05.tar.gz
+URL = https://github.com/intel/intel-cmt-cat/archive/v25.04/intel-cmt-cat-25.04.tar.gz
 ARCHIVES = 
 
 include ../common/Makefile.common
